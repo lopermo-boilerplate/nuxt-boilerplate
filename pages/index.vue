@@ -1,13 +1,41 @@
 <template>
   <FullSection>
     <div class="d-flex flex-column justify-content-center my-auto">
-      <h1>Idiomas</h1>
-      <h2>{{ $t('test') }}</h2>
-      <ul>
-        <li v-for="(locale, index) in availableLocales" :key="locale.code">
-          <nuxt-link exact :to="switchLocalePath(locale.code)">{{ locale.name }}</nuxt-link>
-        </li>
-      </ul>
+      <div class="row">
+        <div id="languages" class="col-lg-6">
+          <h1>Locales</h1>
+          <div>Test i18n: {{ $t('test') }}</div>
+          <ul>
+            <li v-for="(locale, index) in availableLocales" :key="locale.code">
+              <nuxt-link exact :to="switchLocalePath(locale.code)">{{ locale.name }}</nuxt-link>
+            </li>
+          </ul>
+        </div>
+        <div id="themes" class="col-lg-6">
+          <div class="row">
+            <div class="col-6 col-lg">
+              <div class="box bg-primary"></div>
+              Primary
+            </div>
+            <div class="col-6 col-lg">
+              <div class="box bg-secondary"></div>
+              Secondary
+            </div>
+            <div class="col-6 col-lg">
+              <div class="box bg-light"></div>
+              Light
+            </div>
+            <div class="col-6 col-lg">
+              <div class="box bg-navy"></div>
+              Navy
+            </div>
+            <div class="col-6 col-lg">
+              <div class="box bg-google"></div>
+              Google
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </FullSection>
 </template>
@@ -74,4 +102,10 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.box {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.25rem;
+}
+</style>

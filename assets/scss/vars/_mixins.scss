@@ -1,0 +1,16 @@
+/* Custom font weights */
+@function weight($key) {
+  @if map-has-key($weights, $key) {
+    @return map-get($weights, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $weights.";
+  @return null;
+}
+
+@each $name,
+$value in $weights {
+  .font-weight-#{$name} {
+    font-weight: $value !important;
+  }
+}

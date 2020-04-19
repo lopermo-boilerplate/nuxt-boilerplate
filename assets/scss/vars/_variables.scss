@@ -1,0 +1,65 @@
+/* Social Media Colors */
+$twitter: #00aced;
+$whatsapp: #29a628;
+$messenger: #0084ff;
+$facebook: #1877F2;
+$linkedin: #0077B5;
+$google: #4285f4;
+
+/* App Colors */
+$primary: #a6efd9;
+$navy: #003a70;
+$light: #f8f9fa;
+$danger: red;
+
+
+$colors: (
+  "primary": $primary,
+  "black": $navy,
+  "navy": $navy,
+  "facebook": $facebook,
+  "google": $google,
+  "twitter": $twitter,
+  "whatsapp": $whatsapp,
+  "messenger": $messenger,
+  "linkedin": $linkedin
+);
+
+$theme-colors: (
+  "primary": $primary,
+  "black": $navy,
+  "navy": $navy,
+  "facebook": $facebook,
+  "google": $google,
+  "twitter": $twitter,
+  "whatsapp": $whatsapp,
+  "messenger": $messenger,
+  "linkedin": $linkedin
+);
+
+/* ===============
+ * Custom fonts
+ * Functions declared in _mixins.scss
+ * ===============
+ */
+$fonts: (
+  "regular": sans-serif,
+  "Lato": unquote("'Lato', sans-serif"),
+  );
+
+/* ===============
+ * Custom font weights
+ * Functions declared in _mixins.scss
+ * ===============
+ */
+$weights: (
+  ultra-light: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semi-bold: 600,
+  bold: 700,
+  ultra-bold: 900
+);
+
+

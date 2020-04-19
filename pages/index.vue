@@ -3,7 +3,8 @@
     <div class="d-flex flex-column justify-content-center my-auto">
       <div class="row">
         <div id="languages" class="col-lg-6">
-          <h1>Locales</h1>
+          <h1>{{ homeContent.title }}</h1>
+          <!-- <h1>{{ $prismic.asText(homeContent.title) }}</h1> -->
           <div>Test i18n: {{ $t('test') }}</div>
           <ul>
             <li v-for="(locale, index) in availableLocales" :key="locale.code">
@@ -41,12 +42,25 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import FullSection from '~/components/ui/full-section'
 
-export default Vue.extend({
+export default {
   components: {
     FullSection
+  },
+  /* Prismic loading */
+  async asyncData({ $prismic, app, error }) {
+    try {
+      const locale = app.i18n.locales.filter((i) => i.code === app.i18n.locale)[0] // Get actual locale
+      const homeContent = (
+        await $prismic.api.getSingle('homepage', {
+          lang: locale.prismic
+        })
+      ).data
+      return { homeContent }
+    } catch (e) {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
   },
   computed: {
     availableLocales() {
@@ -99,7 +113,7 @@ export default Vue.extend({
       ]
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

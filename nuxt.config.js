@@ -53,6 +53,11 @@ export default {
     // { from: '^/myoldurl/(.*)$', to: '/comeallhere' }, // Many urls to one
     // { from: '^/anotherold/(.*)$', to: '/new/$1' } // One to one mapping
   ],
+  prismic: {
+    endpoint: 'https://nuxt-boilerplate-lopermo.cdn.prismic.io/api/v2',
+    linkResolver: '@/plugins/link-resolver',
+    htmlSerializer: '@/plugins/html-serializer'
+  },
   /*
    ** Nuxt.js dev-modules
    */
@@ -81,6 +86,8 @@ export default {
     'nuxt-purgecss',
     // Doc: https://github.com/nuxt-community/redirect-module
     '@nuxtjs/redirect-module',
+    // Doc: https://prismic.io/docs/vuejs/getting-started/prismic-nuxt
+    '@nuxtjs/prismic',
     // Doc: https://github.com/nuxt-community/nuxt-i18n
     [
       'nuxt-i18n',
@@ -93,18 +100,21 @@ export default {
           {
             code: 'en',
             iso: 'en-US',
+            prismic: 'en-gb',
             name: 'English',
             file: 'en.js'
           },
           {
             code: 'pl',
             iso: 'pl-PL',
+            prismic: 'pl',
             name: 'Polski',
             file: 'pl.js'
           },
           {
             code: 'es',
             iso: 'es-ES',
+            prismic: 'es-es',
             name: 'Español',
             file: 'es.js'
           }
